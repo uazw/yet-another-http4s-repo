@@ -1,7 +1,9 @@
 package io.github.uazw.rebrith
 
-@main def hello(): Unit =
-  println("Hello world!")
-  println(msg)
+import cats.effect.IOApp
+import cats.effect.ExitCode
+import cats.effect.IO
+import cats.syntax.applicative._
 
-def msg = "I was compiled by Scala 3. :)"
+object Main extends IOApp:
+  def run(args: List[String]): IO[ExitCode] = IO.println("hello world") >> ExitCode.Success.pure[IO]
